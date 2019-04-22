@@ -26,7 +26,7 @@ class PriorityQueue
     ~PriorityQueue();
 
     // Purpose: enqueue new group into priority queue; call other
-    void enqueue (string _startLocation, string _endLocation, int _distance, int priority);
+    void enqueue(string _startLocation, string _endLocation, int _priority);
 
     //Purpose: remove the group (allocate the table) at the front of the priority queue from
     void dequeue();

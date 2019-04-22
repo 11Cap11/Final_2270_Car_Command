@@ -35,14 +35,13 @@ PriorityQueue::~PriorityQueue()
     delete[] priorityQueue;
 };
 
-void PriorityQueue::enqueue(string _startLocation, string _endLocation, int _distance, int _priority){
+void PriorityQueue::enqueue(string _startLocation, string _endLocation, int _priority){
     Customer add;
     add.startLocation = _startLocation;
     add.endLocation = _endLocation;
-    add.distanceToTravel = _distance;
     add.priority = _priority;
 
-    if(currentQueueSize == maxQueueSize)
+    if(currentQueueSize == maxQueueSize - 1)
     {
         cout << "Heap full, cannot enqueue" << endl;
         return;

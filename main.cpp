@@ -14,11 +14,12 @@ using namespace std;
 void displayMenu(){
     cout << "============Main Menu============" << endl;
     cout << "1. Load City From a Text File" << endl;
-    cout << "2. Add a Group to Priority Queue" << endl;
+    cout << "2. Add a Customer Order" << endl;
     cout << "3. Show Customer List" << endl;
-    cout << "4. Serve Next Group" << endl;
+    cout << "4. Serve Next Customer" << endl;
     cout << "5. Automate"<<endl;
-    cout << "6. Quit" << endl;
+    cout << "6. Finish Day"<<endl;
+    cout << "7. Quit" << endl;
 }
 
 void newCustomerProcess(string name, City myCity){//City may need to be converted to pointer if the program is working improperly!
@@ -30,17 +31,6 @@ void newCustomerProcess(string name, City myCity){//City may need to be converte
     string inputD;
         cout<<"enter nearest location name:"<<endl;
         getline(cin, nearName);
-        cout<<"enter distance to nearest location:"<<endl;
-        while(getline(cin, inputD)){
-            try{
-                distanceNear = stoi(inputD);
-                break;
-            }
-            catch(...){
-                cout<<"invalid input"<<endl;
-                cout<<"enter distance to nearest location:"<<endl;
-            }
-        }
         cout<<"enter nearest location to destination:"<<endl;
         getline(cin, endName);
         cout<<"enter distance from destination to nearest location:"<<endl;
@@ -68,6 +58,42 @@ void newCustomerProcess(string name, City myCity){//City may need to be converte
     myCity.addCustomer(nearName, endName,(distanceEnd+distanceNear), priority);
     return;
 };
+
+void bookKeeping(double earned2){
+     double earned = 10;
+     ifstream myFile;
+     string line;
+     string line2;
+     string date;
+     double total = 0;
+     vector<string> fileLines;
+     myFile.open("bookKeeping.txt");
+     if(myFile.is_open()){
+          getline(myFile, line);
+          getline(myFile, line);
+          stringstream ss;
+          ss << line;
+          getline(ss, line2, '%');
+          total = earned + stod(line2);
+          while(getline(myFile, line)){
+               fileLines.push_back(line);
+          }
+     }else{cout<<"File Not opened"<<endl;}
+     cout<<"Enter a date with the format (month) (day) (year)"<<endl;
+     getline(cin, date);
+     ofstream outFile;
+     outFile.open("bookKeeping.txt");
+     if(outFile.is_open()){
+          outFile<<"Total Earned;"<<endl;
+          outFile<<total<<"$"<<endl;
+          for(int i = 0; i < fileLines.size(); i++){
+               outFile<<fileLines[i]<<endl;
+          }
+          outFile<<date<<","<<earned<<"$"<<endl;
+     }
+     myFile.close();
+     outFile.close();
+}
 
 int main(){
     displayMenu();
@@ -125,12 +151,13 @@ int main(){
                     else{
                         cout<<"Error: file not opened"<<endl;
                     }
+                    myFile.close();
                     break;}
                 case 2:{
                     cout<<"Enter the Group name"<<endl;
                     getline(cin, line);
                     newCustomerProcess(line, myCity);
-                    break;  }
+                    break;}
                 case 3:{
                     cout<<"Would you like to print Depth first(1) or Breadth first (2)?"<<endl;
                     while(getline(cin, line)){
@@ -156,6 +183,11 @@ int main(){
                     }
                     break;}
                 case 6:{
+                    bookKeeping(earned);
+                    break;
+                }
+                case 7:{
+                    cout<<"Goodbye"<<endl;
                     return 0;}
                 default:{
                     cout<<"invalid input"<<endl;

@@ -1,0 +1,261 @@
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+1
+added: 28th Street
+added: Disney World
+added: Broadway
+added: Stark Tower
+added: 1st Street
+added: Main Street
+added: The Zoo
+Adding road from 28th Street to Disney World with distance 2
+Adding road from 28th Street to Broadway with distance 15
+Adding road from 28th Street to Main Street with distance 6
+Adding road from Disney World to 28th Street with distance 2
+Adding road from Disney World to Broadway with distance 10
+Adding road from Disney World to 1st Street with distance 8
+Adding road from Broadway to 28th Street with distance 15
+Adding road from Broadway to Disney World with distance 10
+Adding road from Broadway to Stark Tower with distance 5
+Adding road from Broadway to Main Street with distance 3
+Adding road from Stark Tower to Broadway with distance 5
+Adding road from Stark Tower to The Zoo with distance 10
+Adding road from 1st Street to Disney World with distance 8
+Adding road from 1st Street to The Zoo with distance 2
+Adding road from Main Street to 28th Street with distance 4
+Adding road from Main Street to Stark Tower with distance 3
+Adding road from Main Street to 1st Street with distance 12
+Adding road from Main Street to The Zoo with distance 9
+Adding road from The Zoo to Stark Tower with distance 5
+Adding road from The Zoo to 1st Street with distance 15
+Adding road from The Zoo to Main Street with distance 1
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+2
+Please enter a valid start location:
+The Zoo
+Location found...
+Please enter a valid end location:
+Stark Tower
+Location found...
+Please enter a valid priority value between 1 and 5:
+Main Street
+invalid input
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+Main Street
+invalid input
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+
+invalid input
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+2
+Please enter a valid start location:
+Main Street
+Location found...
+Please enter a valid end location:
+Broadway
+Location found...
+Please enter a valid priority value between 1 and 5:
+4
+Priority confirmed...
+Enqueueing customer traveling from Main Street to Broadway with priority level 4
+Customer enqued...
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+2
+Please enter a valid start location:
+The Zoo
+Location found...
+Please enter a valid end location:
+1st Street
+Location found...
+Please enter a valid priority value between 1 and 5:
+2
+Priority confirmed...
+Enqueueing customer traveling from The Zoo to 1st Street with priority level 2
+Customer enqued...
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+2
+Please enter a valid start location:
+28th Street
+Location found...
+Please enter a valid end location:
+Stark Tower
+Location found...
+Please enter a valid priority value between 1 and 5:
+5
+Priority confirmed...
+Enqueueing customer traveling from 28th Street to Stark Tower with priority level 5
+Customer enqued...
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+3
+Would you like to print Depth first(1) or Breadth first (2)?
+1
+28th Street
+Disney World
+Broadway
+Stark Tower
+The Zoo
+1st Street
+Main Street
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+2
+Please enter a valid start location:
+Disney World
+Location found...
+Please enter a valid end location:
+28th Street
+Location found...
+Please enter a valid priority value between 1 and 5:
+3
+Priority confirmed...
+Enqueueing customer traveling from Disney World to 28th Street with priority level 3
+Customer enqued...
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+4
+The Zoo-->1st Street
+Main Street-->Broadway
+28th Street-->Stark Tower
+Disney World-->28th Street
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+5
+Total Trip Cost: 22.75
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+6
+Total Trip Cost: 22.5
+car requires charging stop, discount applied
+Total Trip Cost: 16
+Total Trip Cost: 4
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+5
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+7
+Enter a date with the format (month) (day) (year)
+March 8th 2000
+============Main Menu============
+1. Load City From a Text File
+2. Add a Customer Order
+3. Print Locations
+4. Print Queue
+5. Serve Next Customer
+6. Automate
+7. Finish Day
+8. Quit
+8
+Goodbye
+
+
+And output to file:
+Total Earned;
+115.25$
+March 7 2000,50$
+March 8th 2000,65.25$

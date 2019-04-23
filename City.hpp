@@ -45,7 +45,7 @@ class City{
     void printBFT();
     void setAllVerticesUnvisited();
     int numVertexes;
-    void addCustomer(string startLocation, string endLocation, int priority);
+    void addCustomer(string startLocation, string endLocation, int sDistance, int priority);
     int shortestDistance(string start, string end);
     double serveCustomer();
     vector<vertex> vertices; //stores vertices

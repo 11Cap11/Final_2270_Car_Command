@@ -22,71 +22,43 @@ void displayMenu(){
     cout << "7. Quit" << endl;
 }
 
-void newCustomerProcess(string name, City myCity)
-{
-    if(myCity.vertices.size() > 0)
-    {
-      bool validStart = false;
-      bool validEnd = false;
-      bool validPriority = false;
-
-      string startLocation;
-      string endLocation;
-      string priority;
-      int priorityInt;
-
-      while(validStart == false && validEnd == false && validPriority == false)
-      {
-        cout << "Please enter a valid start location:" << endl;
-        getline(cin, startLocation);
-        for(int i = 0; i < myCity.vertices.size(); i++)
-        {
-          if(startLocation == myCity.vertices[i].name)
-          {
-            cout << "Location found..." << endl;
-            validStart = true;
-          }
+void newCustomerProcess(string name, City myCity){//City may need to be converted to pointer if the program is working improperly!
+    string nearName;
+    string endName;
+    int priority;
+    int distanceNear;
+    int distanceEnd;
+    string inputD;
+        cout<<"enter nearest location name:"<<endl;
+        getline(cin, nearName);
+        cout<<"enter nearest location to destination:"<<endl;
+        getline(cin, endName);
+        cout<<"enter distance from destination to nearest location:"<<endl;
+        while(getline(cin, inputD)){
+        try{
+            distanceEnd = stoi(inputD);
+            break;
         }
-      }
-
-      while(validStart == true && validEnd == false && validPriority == false)
-      {
-        cout << "Please enter a valid end location:" << endl;
-        getline(cin, endLocation);
-        for(int i = 0; i < myCity.vertices.size(); i++)
-        {
-          if(endLocation == myCity.vertices[i].name && endLocation != startLocation)
-          {
-            cout << "Location found..." << endl;
-            validEnd = true;
-          }
+        catch(...){
+            cout<<"invalid input"<<endl;
+            cout<<"enter distance to nearest location:"<<endl;
         }
-      }
-
-      while(validPriority == false)
-      {
-        cout << "Please enter a valid priority value between 1 and 5:"  << endl;
-        getline(cin, priority);
-        priorityInt = stoi(priority);
-
-        if(priorityInt >= 1 && priorityInt <= 5)
-        {
-          cout << "Priority confirmed..." << endl;
-          validPriority = true;
-          cout << "Enqueueing customer traveling from " << startLocation << " to " << endLocation << " with priority level " << priority << endl;
-        }
-      }
-
-      myCity.addCustomer(startLocation, endLocation, priorityInt);
-      cout << "Customer enqued..." << endl;
-      return;
     }
-
-    else
-    {
-      cout << "Cannot add groups until city is initialized..." << endl;
+    cout<<"enter customer priority (1-5):"<<endl;
+    while(getline(cin, inputD)){
+        try{
+            priority = stoi(inputD);
+            break;
+        }
+        catch(...){
+            cout<<"Invalid input"<<endl;
+            cout<<"enter customer priority (1-5):"<<endl;
+        }
     }
+    myCity.addCustomer(nearName, endName,(distanceEnd+distanceNear), priority);
+    return;
 };
+
 void bookKeeping(double earned2){
      double earned = 10;
      ifstream myFile;
@@ -122,6 +94,7 @@ void bookKeeping(double earned2){
      myFile.close();
      outFile.close();
 }
+
 int main(){
     displayMenu();
     string choice;
@@ -178,10 +151,13 @@ int main(){
                     else{
                         cout<<"Error: file not opened"<<endl;
                     }
+                    myFile.close();
                     break;}
                 case 2:{
+                    cout<<"Enter the Group name"<<endl;
+                    getline(cin, line);
                     newCustomerProcess(line, myCity);
-                    break;  }
+                    break;}
                 case 3:{
                     cout<<"Would you like to print Depth first(1) or Breadth first (2)?"<<endl;
                     while(getline(cin, line)){
@@ -206,13 +182,14 @@ int main(){
                         earned += myCity.serveCustomer();
                     }
                     break;}
-               case 6:{
+                case 6:{
                     bookKeeping(earned);
-                    break;}
-               case 7:{
+                    break;
+                }
+                case 7:{
                     cout<<"Goodbye"<<endl;
                     return 0;}
-               default:{
+                default:{
                     cout<<"invalid input"<<endl;
                     break;}
           }
